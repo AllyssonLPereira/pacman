@@ -15,8 +15,8 @@ class Pacman:
         self.center_x: int = 400
         self.center_y: int = 300
         self.len: int = 800 // 30
-        self.speed_x: float = 0.2
-        self.speed_y: float = 0.2
+        self.speed_x: float = 0
+        self.speed_y: float = 0
         self.radius: int = self.len // 2
 
     def calculate_rules(self):
