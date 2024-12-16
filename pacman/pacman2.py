@@ -2,9 +2,9 @@ import pygame
 
 
 pygame.init()
-screen = pygame.display.set_mode((800, 600), 0)
 
 YELLOW: tuple[int, int, int] = (255, 255, 0) # Color for Pac-Man
+BLUE: tuple[int, int, int] = (0, 0, 255) #
 BLACK: tuple[int, int, int] = (0, 0, 0) # Background color
 SPEED: float = 0.25 # Movement speed
 
@@ -14,7 +14,29 @@ class Scenario:
 
     """
     def __init__(self, size):
+        self.size = size
+        self.matrix = [
+            [1, 1, 1, 1, 1],
+            [1, 0, 1, 0, 1],
+            [1, 1, 1, 1, 1],
+            [1, 0, 1, 0, 1],
+            [1, 1, 1, 1, 1],
+        ]
 
+    def paint_column(self, screen, row_number, row):
+        for column_number, column in enumerate(row):
+            x = column_number * self.size
+            y = row_number * self.size
+            color = BLACK
+
+            if column == 2:
+                color = BLUE
+
+            pygame.draw.rect(screen, color, (x, y, self.size, self.size), 0)
+
+    def paint(self, screen):
+        for row_number, row in enumerate(self.matrix):
+            self.paint_column(screen, row_number, row)
 
 
 class Pacman:
@@ -69,6 +91,8 @@ class Pacman:
 
 if __name__ == "__main__":
     pacman = Pacman()
+    scenario = Scenario(600 // 30)
+    screen = pygame.display.set_mode((800, 600), 0)
 
     while True:
         # calculate the rules
@@ -76,6 +100,7 @@ if __name__ == "__main__":
 
         # paint the screen
         screen.fill(BLACK)
+        scenario.paint(screen)
         pacman.paint(screen)
         pygame.display.update()
         pygame.time.delay(50)

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Realocando a lógica do processamento de eventos para dentro da class Pacman.">
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Adicionando docstrings e comentários...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman/pacman2.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/pacman2.py" afterDir="false" />
     </list>
@@ -39,6 +39,9 @@
     &quot;accountId&quot;: &quot;04714d7c-050f-4945-b906-6cfd2cf653de&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -62,6 +65,23 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;
   }
 }</component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\usuar\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+        <option name="reportGuid" value="db13bc42-e175-4129-abbb-1ade4419f038" />
+        <option name="reportName" value="project/qodana/2024-12-16" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\usuar\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="db13bc42-e175-4129-abbb-1ade4419f038" reportId="project/qodana/2024-12-16" />
+    </option>
+  </component>
   <component name="RunManager" selected="Python.pacman2">
     <configuration name="pacman" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project" />
@@ -170,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734378322439</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Adicionando docstrings e comentários...">
+      <option name="closed" value="true" />
+      <created>1734382013499</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734382013499</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,6 +218,7 @@
     <MESSAGE value="Removendo as condições que impediam o pacman de passar da borda da tela." />
     <MESSAGE value="Alterando as variáveis de instância da class Pacman para 0." />
     <MESSAGE value="Realocando a lógica do processamento de eventos para dentro da class Pacman." />
-    <option name="LAST_COMMIT_MESSAGE" value="Realocando a lógica do processamento de eventos para dentro da class Pacman." />
+    <MESSAGE value="Adicionando docstrings e comentários..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionando docstrings e comentários..." />
   </component>
 </project>
