@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Adicionando anotações às variáveis de instância e às constantes.">
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Alterando as variáveis de instância da class Pacman para 0.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman/pacman2.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/pacman2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +146,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734376563001</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Removendo as condições que impediam o pacman de passar da borda da tela.">
+      <option name="closed" value="true" />
+      <created>1734377234545</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734377234545</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Alterando as variáveis de instância da class Pacman para 0.">
+      <option name="closed" value="true" />
+      <created>1734377292521</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734377292521</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +179,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Criação da class Pacman..." />
     <MESSAGE value="Adicionando anotações às variáveis de instância e às constantes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando anotações às variáveis de instância e às constantes." />
+    <MESSAGE value="Removendo as condições que impediam o pacman de passar da borda da tela." />
+    <MESSAGE value="Alterando as variáveis de instância da class Pacman para 0." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterando as variáveis de instância da class Pacman para 0." />
   </component>
 </project>

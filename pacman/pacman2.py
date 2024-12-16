@@ -15,9 +15,10 @@ class Pacman:
         self.center_x: int = 400
         self.center_y: int = 300
         self.len: int = 800 // 30
-        self.speed_x: float = 0
-        self.speed_y: float = 0
+        self.speed_x: float = 0.0
+        self.speed_y: float = 0.0
         self.radius: int = self.len // 2
+        self.events = pygame.event.get()
 
     def calculate_rules(self):
         self.column += self.speed_x
@@ -38,6 +39,14 @@ class Pacman:
 
         pygame.draw.polygon(screen, BLACK, pontos, 0)
 
+    def process_events(self):
+        for e in self.events:
+            if e.type == pygame.QUIT:
+                exit()
+            elif e.type == pygame.KEYDOWN:
+                if e.key == pygame.K_RIGHT:
+                    self.speed_x = 0.2
+
 
 if __name__ == "__main__":
     pacman = Pacman()
@@ -53,6 +62,3 @@ if __name__ == "__main__":
         pygame.time.delay(50)
 
         # captura os eventos
-        for e in pygame.event.get():
-            if e.type == pygame.QUIT:
-                exit()
