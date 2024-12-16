@@ -4,20 +4,20 @@ import pygame
 pygame.init()
 screen = pygame.display.set_mode((800, 600), 0)
 
-YELLOW = (255, 255, 0)
-BLACK = (0, 0, 0)
+YELLOW: tuple[int, int, int] = (255, 255, 0)
+BLACK: tuple[int, int, int] = (0, 0, 0)
 
 
 class Pacman:
     def __init__(self):
-        self.column = 1
-        self.line = 1
-        self.center_x = 400
-        self.center_y = 300
-        self.len = 800 // 30
-        self.speed_x = 0.2
-        self.speed_y = 0.2
-        self.radius = self.len // 2
+        self.column: int = 1
+        self.line: int = 1
+        self.center_x: int = 400
+        self.center_y: int = 300
+        self.len: int = 800 // 30
+        self.speed_x: float = 0.2
+        self.speed_y: float = 0.2
+        self.radius: int = self.len // 2
 
     def calculate_rules(self):
         self.column += self.speed_x
