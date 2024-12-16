@@ -25,16 +25,6 @@ class Pacman:
         self.center_x = int(self.column * self.len + self.radius)
         self.center_y = int(self.line * self.len + self.radius)
 
-        if self.center_x + self.radius > 800:
-            self.speed_x = -0.2
-        if self.center_x - self.radius < 0:
-            self.speed_x = 0.2
-
-        if self.center_y + self.radius > 600:
-            self.speed_y = -0.2
-        if self.center_y - self.radius < 0:
-            self.speed_y = 0.2
-
     def paint(self, surface):
         # Desenhar o corpo de pacman
         pygame.draw.circle(surface, YELLOW, (self.center_x, self.center_y), self.radius, 0)
