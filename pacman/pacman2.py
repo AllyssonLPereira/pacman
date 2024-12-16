@@ -4,61 +4,86 @@ import pygame
 pygame.init()
 screen = pygame.display.set_mode((800, 600), 0)
 
-YELLOW: tuple[int, int, int] = (255, 255, 0)
-BLACK: tuple[int, int, int] = (0, 0, 0)
+YELLOW: tuple[int, int, int] = (255, 255, 0) # Color for Pac-Man
+BLACK: tuple[int, int, int] = (0, 0, 0) # Background color
+SPEED: float = 0.25 # Movement speed
+
+
+class Scenario:
+    """Represents the game scenario, including the maze, pellets, and power-ups.
+
+    """
+    def __init__(self, size):
+
 
 
 class Pacman:
+    """Represents the Pac-Man character.
+
+    """
     def __init__(self):
         self.column: int = 1
         self.line: int = 1
         self.center_x: int = 400
         self.center_y: int = 300
-        self.len: int = 800 // 30
+        self.size: int = 800 // 30
         self.speed_x: float = 0.0
         self.speed_y: float = 0.0
-        self.radius: int = self.len // 2
-        self.events = pygame.event.get()
+        self.radius: int = self.size // 2
 
     def calculate_rules(self):
         self.column += self.speed_x
         self.line += self.speed_y
-        self.center_x = int(self.column * self.len + self.radius)
-        self.center_y = int(self.line * self.len + self.radius)
+        self.center_x = int(self.column * self.size + self.radius)
+        self.center_y = int(self.line * self.size + self.radius)
 
     def paint(self, surface):
-        # Desenhar o corpo de pacman
+        # draw pacman's body
         pygame.draw.circle(surface, YELLOW, (self.center_x, self.center_y), self.radius, 0)
 
-        # Desenhar a boca
-        canto_boca = (self.center_x, self.center_y)
-        labio_superior = (self.center_x + self.radius, self.center_y - self.radius)
-        labio_inferior = (self.center_x + self.radius, self.center_y)
+        # draw the mouth
+        corner_mouth = (self.center_x, self.center_y)
+        upper_lip = (self.center_x + self.radius, self.center_y - self.radius)
+        lower_lip = (self.center_x + self.radius, self.center_y)
 
-        pontos = [canto_boca, labio_superior, labio_inferior]
+        points = [corner_mouth, upper_lip, lower_lip]
 
-        pygame.draw.polygon(screen, BLACK, pontos, 0)
+        pygame.draw.polygon(screen, BLACK, points, 0)
 
-    def process_events(self):
-        for e in self.events:
-            if e.type == pygame.QUIT:
-                exit()
-            elif e.type == pygame.KEYDOWN:
+    def process_events(self, events):
+        for e in events:
+            if e.type == pygame.KEYDOWN:
                 if e.key == pygame.K_RIGHT:
-                    self.speed_x = 0.2
+                    self.speed_x = SPEED
+                    self.speed_y = 0.0
+                elif e.key == pygame.K_LEFT:
+                    self.speed_x = -SPEED
+                    self.speed_y = 0.0
+                elif e.key == pygame.K_DOWN:
+                    self.speed_y = SPEED
+                    self.speed_x = 0.0
+                elif e.key == pygame.K_UP:
+                    self.speed_y = -SPEED
+                    self.speed_x = 0.0
 
 
 if __name__ == "__main__":
     pacman = Pacman()
 
     while True:
-        # calcular as regras
+        # calculate the rules
         pacman.calculate_rules()
 
-        # pintar a tela
+        # paint the screen
         screen.fill(BLACK)
         pacman.paint(screen)
         pygame.display.update()
         pygame.time.delay(50)
 
-        # captura os eventos
+        # captures the events
+        events = pygame.event.get()
+
+        for e in events:
+            if e.type == pygame.QUIT:
+                exit()
+        pacman.process_events(events)
