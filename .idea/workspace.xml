@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Adicionando docstrings e comentários...">
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Criando a class Scenario.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman/pacman2.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/pacman2.py" afterDir="false" />
     </list>
@@ -40,7 +40,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -198,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734382013499</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Criando a class Scenario.">
+      <option name="closed" value="true" />
+      <created>1734389208440</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734389208440</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +227,7 @@
     <MESSAGE value="Alterando as variáveis de instância da class Pacman para 0." />
     <MESSAGE value="Realocando a lógica do processamento de eventos para dentro da class Pacman." />
     <MESSAGE value="Adicionando docstrings e comentários..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando docstrings e comentários..." />
+    <MESSAGE value="Criando a class Scenario." />
+    <option name="LAST_COMMIT_MESSAGE" value="Criando a class Scenario." />
   </component>
 </project>
