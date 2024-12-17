@@ -6,10 +6,13 @@ import pygame
 
 pygame.init()
 
+screen: Surface = pygame.display.set_mode((800, 600), 0)
+font = pygame.font.SysFont("arial", 24, True, False)
+
 YELLOW: tuple[int, int, int] = (255, 255, 0) # Color for Pac-Man
 BLACK: tuple[int, int, int] = (0, 0, 0) # Background color
 BLUE: tuple[int, int, int] = (0, 0, 255) #
-SPEED: float = 0.25 # Movement speed
+SPEED: int = 1 # Movement speed
 SIZE: int = 600 // 30
 
 
@@ -24,6 +27,7 @@ class Scenario:
         :type size: int
         """
         self.pacman = pac
+        self.score = 0
         self.size = size
         self.matrix = [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -59,25 +63,30 @@ class Scenario:
         ]
 
     def calculate_rules(self):
-        column: int = int(self.pacman.column_intention - SPEED)
-        line: int = int(self.pacman.line_intention - SPEED)
+        column: int = self.pacman.column_intention
+        line: int = self.pacman.line_intention
 
         if 0 <= column < 28 and 0 <= line < 29:
             if self.matrix[line][column] != 1:
                 self.pacman.accept_movement()
 
-    def sweep_lines(self, canvas: SurfaceType):
+                if self.matrix[line][column] == 0:
+                    self.score += 1
+                    self.matrix[line][column] = 0
+
+    def paint(self, screen: SurfaceType):
         """
 
-        :type canvas: SurfaceType
+        :type screen: SurfaceType
         """
         for row_number, row in enumerate(self.matrix):
-            self.paint_matrix(canvas, row_number, row)
+            self.paint_matrix(screen, row_number, row)
+        self.paint_score(screen)
 
-    def paint_matrix(self, canvas: SurfaceType, row_number: int, row: list[int | Any] | Any):
+    def paint_matrix(self, screen: SurfaceType, row_number: int, row: list[int | Any] | Any):
         """
 
-        :type canvas: SurfaceType
+        :type screen: SurfaceType
         :type row_number: int
         :type row: list[int | Any] | Any
         """
@@ -88,32 +97,36 @@ class Scenario:
             x = column_number * self.size
             y = row_number * self.size
             half_size: int = self.size // 2
-            color_rect = BLUE
+            color_rect = BLACK
+
+            if column == 1:
+                color_rect = BLUE
+
+            pygame.draw.rect(screen, color_rect, (x, y, self.size, self.size), 0)
 
             if column == 0:
-                color_rect = BLACK
+                pygame.draw.circle(screen, YELLOW, (x + half_size, y + half_size), self.size // 10, 0)
 
-            pygame.draw.rect(canvas, color_rect, (x, y, self.size, self.size), 0)
-
-            if column == 0:
-                pygame.draw.circle(canvas, YELLOW, (x + half_size, y + half_size), self.size // 10, 0)
-
+    def paint_score(self, screen):
+        columns = 30 * self.size
+        img_score = font.render(f"score {self.score}", True, YELLOW)
+        screen.blit(img_score, (columns, 50))
 
 class Pacman:
     """Represents the Pac-Man character.
 
     """
     def __init__(self, size):
-        self.column: float = 1.0
-        self.line: float = 1.0
+        self.column: int = 1
+        self.line: int = 1
         self.center_x: int = 400
         self.center_y: int = 300
         self.size: int = size
-        self.speed_x: float = 0.0
-        self.speed_y: float = 0.0
+        self.speed_x: int = 0
+        self.speed_y: int = 0
         self.radius: int = self.size // 2
-        self.column_intention: float = self.column
-        self.line_intention: float = self.line
+        self.column_intention: int = self.column
+        self.line_intention: int = self.line
 
     def calculate_rules(self):
         self.column_intention = self.column + self.speed_x
@@ -142,29 +155,28 @@ class Pacman:
 
         pygame.draw.polygon(screen, BLACK, points, 0)
 
-    def process_events(self, event: list[Event]):
+    def process_events(self, events: list[Event]):
         """
 
-        :type event: list[Event]
+        :type events: list[Event]
         """
-        for eve in event:
-            if eve.type == pygame.KEYDOWN:
-                if eve.key == pygame.K_RIGHT:
+        for event in events:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
                     self.speed_x = SPEED
-                    self.speed_y = 0.0
-                elif eve.key == pygame.K_LEFT:
+                    self.speed_y = 0
+                elif event.key == pygame.K_LEFT:
                     self.speed_x = -SPEED
-                    self.speed_y = 0.0
-                elif eve.key == pygame.K_DOWN:
+                    self.speed_y = 0
+                elif event.key == pygame.K_DOWN:
                     self.speed_y = SPEED
-                    self.speed_x = 0.0
-                elif eve.key == pygame.K_UP:
+                    self.speed_x = 0
+                elif event.key == pygame.K_UP:
                     self.speed_y = -SPEED
-                    self.speed_x = 0.0
+                    self.speed_x = 0
 
 
 if __name__ == "__main__":
-    screen: Surface = pygame.display.set_mode((800, 600), 0)
     pacman: Pacman = Pacman(SIZE)
     scenario: Scenario = Scenario(SIZE, pacman)
 
@@ -175,7 +187,7 @@ if __name__ == "__main__":
 
         # paint the screen
         screen.fill(BLACK)
-        scenario.sweep_lines(screen)
+        scenario.paint(screen)
         pacman.paint(screen)
         pygame.display.update()
         pygame.time.delay(50)
@@ -183,8 +195,8 @@ if __name__ == "__main__":
         # captures the events
         events: list[Event] = pygame.event.get()
 
-        e: Event
-        for e in events:
-            if e.type == pygame.QUIT:
+        event: Event
+        for event in events:
+            if event.type == pygame.QUIT:
                 exit()
         pacman.process_events(events)
