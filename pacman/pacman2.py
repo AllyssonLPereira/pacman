@@ -16,6 +16,16 @@ SPEED: int = 1 # Movement speed
 SIZE: int = 600 // 30
 
 
+class GameElements:
+    def paint(self, screen):
+        pass
+
+    def calculate_rules(self):
+        pass
+
+    def process_events(self, events):
+        pass
+
 class Scenario:
     """Represents the game scenario, including the maze, pellets, and power-ups.
 
@@ -72,7 +82,7 @@ class Scenario:
 
                 if self.matrix[line][column] == 0:
                     self.score += 1
-                    self.matrix[line][column] = 0
+                    self.matrix[line][column] = 2
 
     def paint(self, screen: SurfaceType):
         """
