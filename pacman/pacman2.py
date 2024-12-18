@@ -4,20 +4,34 @@ from pygame.event import Event
 from typing import Any
 import pygame
 
-
+# Inicialização do pygame
 pygame.init()
 
+# Tamanho da tela do jogo
 screen: Surface = pygame.display.set_mode((800, 600), 0)
+
+# Fonte dos textos a serem exibidos
 font = pygame.font.SysFont("arial", 24, True, False)
 
+# Cores
 WHITE: tuple[int, int, int] = (255, 255, 255)
 BLACK: tuple[int, int, int] = (0, 0, 0) # Background color
 RED: tuple[int, int, int] = (255, 0, 0)
 GREEN: tuple[int, int, int] = (0, 255, 0)
 YELLOW: tuple[int, int, int] = (255, 255, 0) # Color for Pac-Man
 BLUE: tuple[int, int, int] = (0, 0, 255) #
+
+# Velocidade dos personagens
 SPEED: int = 1 # Movement speed
+
+# Divisão da altura pelo número de linhas
 SIZE: int = 600 // 30
+
+# Movimentos do fantasma
+UP: int = 1
+DOWN: int = 2
+RIGHT: int = 3
+LEFT: int = 4
 
 
 class GameElements(metaclass=ABCMeta):
@@ -38,13 +52,15 @@ class Scenario(GameElements):
     """Represents the game scenario, including the maze, pellets, and power-ups.
 
     """
-    def __init__(self, size: int, pac: object):
+    def __init__(self, size: int, pac: object, ghost: object):
         """
 
+        :type ghost: object
         :type pac: object
         :type size: int
         """
         self.pacman = pac
+        self.ghost = ghost
         self.score = 0
         self.size = size
         self.matrix = [
@@ -79,10 +95,24 @@ class Scenario(GameElements):
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         ]
+    def get_direction(self, line, column):
+        directions = []
+
+        if self.matrix[int(line - 1)][int(column)] != 1:
+            directions.append(UP)
+        if self.matrix[int(line + 1)][int(column)] != 1:
+            directions.append(DOWN)
+        if self.matrix[int(line)][int(column - 1)] != 1:
+            directions.append(LEFT)
+        if self.matrix[int(line)][int(column + 1)] != 1:
+            directions.append(RIGHT)
+
+        return directions
 
     def calculate_rules(self):
-        column: int = self.pacman.column_intention
-        line: int = self.pacman.line_intention
+        directions = self.get_direction(self.ghost.line, self.ghost.column)
+        column: int = int(self.pacman.column_intention)
+        line: int = int(self.pacman.line_intention)
 
         if 0 <= column < 28 and 0 <= line < 29:
             if self.matrix[line][column] != 1:
@@ -215,6 +245,8 @@ class Ghost(GameElements):
         slice = self.size // 8
         pixel_x = int(self.column * self.size)
         pixel_y = int(self.line * self.size)
+
+        # Forma do fantasma
         shape = [(pixel_x, pixel_y + self.size),
                  (pixel_x + slice, pixel_y + slice * 2),
                  (pixel_x + slice * 2, pixel_y + slice // 2),
@@ -224,21 +256,28 @@ class Ghost(GameElements):
                  (pixel_x + slice * 7, pixel_y + slice * 2),
                  (pixel_x + self.size, pixel_y + self.size)]
 
+        # Desenhar a forma do fantasma
         pygame.draw.polygon(screen, self.color, shape, 0)
 
+        # Criar o raio da parte branca e preta do olho
         eye_external_ray = slice
         eye_inner_ray = slice // 2
 
+        # Criar do centro do olho esquerdo
         left_eye_x = int(pixel_x + slice * 2.5)
         left_eye_y = int(pixel_y + slice * 2.5)
+
+        # Criar do centro do olho direito
         right_eye_x = int(pixel_x + slice * 5.5)
         right_eye_y = int(pixel_y + slice * 2.5)
 
+        # Desenhar o olho esquerdo
         pygame.draw.circle(screen, WHITE, (left_eye_x, left_eye_y), eye_external_ray, 0)
-        pygame.draw.circle(screen, BLACK, (left_eye_x, left_eye_y), eye_external_ray, 0)
+        pygame.draw.circle(screen, BLACK, (left_eye_x, left_eye_y), eye_inner_ray, 0)
 
+        # Desenhar o olho direito
         pygame.draw.circle(screen, WHITE, (right_eye_x, right_eye_y), eye_external_ray, 0)
-        pygame.draw.circle(screen, BLACK, (right_eye_x, right_eye_y), eye_external_ray, 0)
+        pygame.draw.circle(screen, BLACK, (right_eye_x, right_eye_y), eye_inner_ray, 0)
 
     def calculate_rules(self):
         pass
@@ -249,12 +288,12 @@ class Ghost(GameElements):
 
 if __name__ == "__main__":
     pacman: Pacman = Pacman(SIZE)
-    scenario: Scenario = Scenario(SIZE, pacman)
+    blinky = Ghost(SIZE, RED)
+    scenario: Scenario = Scenario(SIZE, pacman, blinky)
 
     while True:
         # calculate the rules
         pacman.calculate_rules()
-        blinky = Ghost(SIZE, RED)
         scenario.calculate_rules()
 
         # paint the screen
