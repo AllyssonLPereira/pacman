@@ -252,10 +252,8 @@ class Scenario(GameElements):
             self.paint_playing(screen)
             self.paint_paused(screen)
         elif self.status == 2:
-            self.paint_playing(screen)
             self.paint_game_over(screen)
         elif self.status == 3:
-            self.paint_playing(screen)
             self.paint_victory(screen)
 
     @staticmethod
