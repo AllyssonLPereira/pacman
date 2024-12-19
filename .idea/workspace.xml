@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Comentando código e adicionando lógica no fantasma.">
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Adicionando lógica de movimentação para o pacman e o fantasma.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman/pacman2.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/pacman2.py" afterDir="false" />
     </list>
@@ -254,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734533699967</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Adicionando lógica de movimentação para o pacman e o fantasma.">
+      <option name="closed" value="true" />
+      <created>1734611942788</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1734611942788</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,6 +290,7 @@
     <MESSAGE value="Criando nova classe para abstração." />
     <MESSAGE value="Criando a class Ghost." />
     <MESSAGE value="Comentando código e adicionando lógica no fantasma." />
-    <option name="LAST_COMMIT_MESSAGE" value="Comentando código e adicionando lógica no fantasma." />
+    <MESSAGE value="Adicionando lógica de movimentação para o pacman e o fantasma." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionando lógica de movimentação para o pacman e o fantasma." />
   </component>
 </project>
