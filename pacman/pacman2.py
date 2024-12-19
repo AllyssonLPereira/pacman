@@ -192,8 +192,19 @@ class Scenario(GameElements):
         for character in self.characters:
             line = int(character.line)
             column = int(character.column)
-            line_intention = int(math.ceil(character.line_intention))
-            column_intention = int(math.ceil(character.column_intention))
+            line_intention = character.line_intention
+            column_intention = character.column_intention
+
+            if line_intention > line:
+                line_intention = int(math.ceil(line_intention))
+            elif line_intention < line:
+                line_intention = int(math.floor(line_intention))
+
+            if column_intention > column:
+                column_intention = int(math.ceil(column_intention))
+            elif column_intention < column:
+                column_intention = int(math.floor(column_intention))
+
 
             directions = self.get_direction(line, column)
 
@@ -213,11 +224,11 @@ class Scenario(GameElements):
 
             else:
                 if 0 <= column_intention < 28 and 0 <= line_intention < 29 and \
-                        self.matrix[line_intention][column_intention] != 1:
+                        self.matrix[int(line_intention)][int(column_intention)] != 1:
                     if isinstance(character, Ghost):
                         character.accept_movement()
 
-                    elif isinstance(character, Pacman) and self.matrix[line_intention][column_intention] != 3:
+                    elif isinstance(character, Pacman) and self.matrix[int(line_intention)][int(column_intention)] != 3:
                         character.accept_movement()
 
                     if isinstance(character, Pacman) and self.matrix[line][column] == 0:
