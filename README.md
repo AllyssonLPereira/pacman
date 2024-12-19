@@ -7,9 +7,11 @@ Um clássico jogo de arcade recriado em Python usando a biblioteca Pygame.
 * Python
 * Pygame
 
+**Video Demo:  <URL HERE>**
+
 **Como Executar:**
 
-1. Clone este repositório: `git clone https://github.com/seu-usuario/pacman-python.git`
+1. Clone este repositório: `git clone https://github.com/AllyssonLPereira/pacman-python.git`
 2. Instale as dependências: `pip install -r requirements.txt`
 3. Execute o jogo: `python main.py`
 
