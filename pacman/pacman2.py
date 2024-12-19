@@ -4,6 +4,7 @@ from abc import ABCMeta, abstractmethod
 from pygame.event import Event
 from typing import Any
 import random
+import math
 
 
 # Pygame initialization
@@ -27,7 +28,7 @@ ROSE: tuple[int, int, int] = (241, 126, 161)
 WHITE: tuple[int, int, int] = (255, 255, 255)
 
 # Character speed
-SPEED: int = 1 # Movement speed
+SPEED: float = 0.25  # Movement speed
 
 # Dividing the height by the number of lines
 SIZE: int = 600 // 30
@@ -191,8 +192,8 @@ class Scenario(GameElements):
         for character in self.characters:
             line = int(character.line)
             column = int(character.column)
-            line_intention = int(character.line_intention)
-            column_intention = int(character.column_intention)
+            line_intention = int(math.ceil(character.line_intention))
+            column_intention = int(math.ceil(character.column_intention))
 
             directions = self.get_direction(line, column)
 
@@ -500,8 +501,8 @@ class Ghost(GameElements):
 
         self.column: float = 13.0
         self.line: float = 15.0
-        self.column_intention = self.column
-        self.line_intention = self.line
+        self.column_intention: float = self.column
+        self.line_intention: float = self.line
         self.speed: float = 0.75
         self.direction: int = UP
         self.size = size
