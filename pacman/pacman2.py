@@ -1,8 +1,10 @@
+import pygame
 from pygame import SurfaceType, Surface
 from abc import ABCMeta, abstractmethod
 from pygame.event import Event
 from typing import Any
-import pygame
+import random
+
 
 # Inicialização do pygame
 pygame.init()
@@ -48,19 +50,32 @@ class GameElements(metaclass=ABCMeta):
         pass
 
 
+class Moviments(metaclass=ABCMeta):
+    @abstractmethod
+    def accept_movement(self):
+        pass
+
+    @abstractmethod
+    def refuse_movement(self):
+        pass
+
+    @abstractmethod
+    def paths(self):
+        pass
+
+
 class Scenario(GameElements):
     """Represents the game scenario, including the maze, pellets, and power-ups.
 
     """
-    def __init__(self, size: int, pac: object, ghost: object):
+    def __init__(self, size: int, pac: object):
         """
 
-        :type ghost: object
         :type pac: object
         :type size: int
         """
         self.pacman = pac
-        self.ghost = ghost
+        self.characters = []
         self.score = 0
         self.size = size
         self.matrix = [
@@ -95,6 +110,9 @@ class Scenario(GameElements):
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         ]
+    def add_characters(self, obj):
+        self.characters.append(obj)
+
     def get_direction(self, line, column):
         directions = []
 
@@ -110,17 +128,22 @@ class Scenario(GameElements):
         return directions
 
     def calculate_rules(self):
-        directions = self.get_direction(self.ghost.line, self.ghost.column)
-        column: int = int(self.pacman.column_intention)
-        line: int = int(self.pacman.line_intention)
+        for character in self.characters:
+            line = int(character.line)
+            column = int(character.column)
+            line_intention = int(character.line_intention)
+            column_intention = int(character.column_intention)
 
-        if 0 <= column < 28 and 0 <= line < 29:
-            if self.matrix[line][column] != 1:
-                self.pacman.accept_movement()
+            directions = self.get_direction(line, column)
 
-                if self.matrix[line][column] == 0:
-                    self.score += 1
-                    self.matrix[line][column] = 2
+            if len(directions) >= 3:
+                character.paths(directions)
+
+            if 0 <= column_intention < 28 and 0 <= line_intention < 29 and \
+                    self.matrix[line_intention][column_intention] != 1:
+                character.accept_movement()
+            else:
+                character.refuse_movement(directions)
 
     def paint(self, screen: SurfaceType):
         """
@@ -170,7 +193,7 @@ class Scenario(GameElements):
                 exit()
 
 
-class Pacman(GameElements):
+class Pacman(GameElements, Moviments):
     """Represents the Pac-Man character.
 
     """
@@ -195,6 +218,13 @@ class Pacman(GameElements):
     def accept_movement(self):
         self.column = self.column_intention
         self.line = self.line_intention
+
+    def refuse_movement(self, directions):
+        self.column_intention = self.column
+        self.line_intention = self.line
+
+    def paths(self, directions):
+        pass
 
     def paint(self, surface: SurfaceType):
         """
@@ -237,39 +267,43 @@ class Pacman(GameElements):
 class Ghost(GameElements):
     def __init__(self, size, color):
         self.column = 6.0
-        self.line = 8.0
+        self.line = 2.0
+        self.column_intention = self.column
+        self.line_intention = self.line
+        self.speed = 1
+        self.direction = UP
         self.size = size
         self.color = color
 
     def paint(self, screen: SurfaceType):
-        slice = self.size // 8
+        piece = self.size // 8
         pixel_x = int(self.column * self.size)
         pixel_y = int(self.line * self.size)
 
         # Forma do fantasma
         shape = [(pixel_x, pixel_y + self.size),
-                 (pixel_x + slice, pixel_y + slice * 2),
-                 (pixel_x + slice * 2, pixel_y + slice // 2),
-                 (pixel_x + slice * 3, pixel_y),
-                 (pixel_x + slice * 5, pixel_y),
-                 (pixel_x + slice * 6, pixel_y + slice //2),
-                 (pixel_x + slice * 7, pixel_y + slice * 2),
+                 (pixel_x + piece, pixel_y + piece * 2),
+                 (pixel_x + piece * 2, pixel_y + piece // 2),
+                 (pixel_x + piece * 3, pixel_y),
+                 (pixel_x + piece * 5, pixel_y),
+                 (pixel_x + piece * 6, pixel_y + piece //2),
+                 (pixel_x + piece * 7, pixel_y + piece * 2),
                  (pixel_x + self.size, pixel_y + self.size)]
 
         # Desenhar a forma do fantasma
         pygame.draw.polygon(screen, self.color, shape, 0)
 
         # Criar o raio da parte branca e preta do olho
-        eye_external_ray = slice
-        eye_inner_ray = slice // 2
+        eye_external_ray = piece
+        eye_inner_ray = piece // 2
 
         # Criar do centro do olho esquerdo
-        left_eye_x = int(pixel_x + slice * 2.5)
-        left_eye_y = int(pixel_y + slice * 2.5)
+        left_eye_x = int(pixel_x + piece * 2.5)
+        left_eye_y = int(pixel_y + piece * 2.5)
 
         # Criar do centro do olho direito
-        right_eye_x = int(pixel_x + slice * 5.5)
-        right_eye_y = int(pixel_y + slice * 2.5)
+        right_eye_x = int(pixel_x + piece * 5.5)
+        right_eye_y = int(pixel_y + piece * 2.5)
 
         # Desenhar o olho esquerdo
         pygame.draw.circle(screen, WHITE, (left_eye_x, left_eye_y), eye_external_ray, 0)
@@ -280,7 +314,30 @@ class Ghost(GameElements):
         pygame.draw.circle(screen, BLACK, (right_eye_x, right_eye_y), eye_inner_ray, 0)
 
     def calculate_rules(self):
-        pass
+        if self.direction == UP:
+            self.line_intention -= self.speed
+        if self.direction == DOWN:
+            self.line_intention += self.speed
+        if self.direction == RIGHT:
+            self.column_intention += self.speed
+        if self.direction == LEFT:
+            self.column_intention -= self.speed
+
+    def change_movement(self, directions):
+        self.direction = random.choice(directions)
+
+    def accept_movement(self):
+        self.column = self.column_intention
+        self.line = self.line_intention
+
+    def refuse_movement(self, directions):
+        self.column_intention = self.column
+        self.line_intention = self.line
+
+        self.change_movement(directions)
+
+    def paths(self, directions):
+        self.change_movement(directions)
 
     def process_events(self, events: list[Event]):
         pass
@@ -294,6 +351,7 @@ if __name__ == "__main__":
     while True:
         # calculate the rules
         pacman.calculate_rules()
+        blinky.calculate_rules()
         scenario.calculate_rules()
 
         # paint the screen
