@@ -27,7 +27,7 @@ CYAN: tuple[int, int, int] = (0, 255, 255)
 ROSE: tuple[int, int, int] = (241, 126, 161)
 
 # Velocidade dos personagens
-SPEED: int = 1 # Movement speed
+SPEED: float = 0.25 # Movement speed
 
 # Divisão da altura pelo número de linhas
 SIZE: int = 600 // 30
@@ -276,16 +276,16 @@ class Pacman(GameElements, Moviments):
 
     """
     def __init__(self, size):
-        self.column: int = 1
-        self.line: int = 1
+        self.column: float = 1.0
+        self.line: float = 1.0
         self.center_x: int = 400
         self.center_y: int = 300
         self.size: int = size
-        self.speed_x: int = 0
-        self.speed_y: int = 0
+        self.speed_x: float = 0.0
+        self.speed_y: float = 0.0
         self.radius: int = self.size // 2
-        self.column_intention: int = self.column
-        self.line_intention: int = self.line
+        self.column_intention: float = self.column
+        self.line_intention: float = self.line
         self.abertura = 0
 
     def calculate_rules(self):
@@ -336,16 +336,16 @@ class Pacman(GameElements, Moviments):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
                     self.speed_x = SPEED
-                    self.speed_y = 0
+                    self.speed_y = 0.0
                 elif event.key == pygame.K_LEFT:
                     self.speed_x = -SPEED
-                    self.speed_y = 0
+                    self.speed_y = 0.0
                 elif event.key == pygame.K_DOWN:
                     self.speed_y = SPEED
-                    self.speed_x = 0
+                    self.speed_x = 0.0
                 elif event.key == pygame.K_UP:
                     self.speed_y = -SPEED
-                    self.speed_x = 0
+                    self.speed_x = 0.0
 
 
 class Ghost(GameElements):
@@ -354,7 +354,7 @@ class Ghost(GameElements):
         self.line = 15.0
         self.column_intention = self.column
         self.line_intention = self.line
-        self.speed = 1
+        self.speed = 0.50
         self.direction = UP
         self.size = size
         self.color = color

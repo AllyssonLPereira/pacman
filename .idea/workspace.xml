@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Adicionando estados ao jogo.">
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Mudando o cenário.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman/pacman2.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/pacman2.py" afterDir="false" />
     </list>
@@ -270,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734617088890</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Mudando o cenário.">
+      <option name="closed" value="true" />
+      <created>1734618972734</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1734618972734</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -300,6 +308,7 @@
     <MESSAGE value="Comentando código e adicionando lógica no fantasma." />
     <MESSAGE value="Adicionando lógica de movimentação para o pacman e o fantasma." />
     <MESSAGE value="Adicionando estados ao jogo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando estados ao jogo." />
+    <MESSAGE value="Mudando o cenário." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mudando o cenário." />
   </component>
 </project>
