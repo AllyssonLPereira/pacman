@@ -81,6 +81,7 @@ class Scenario(GameElements):
         self.characters = []
         self.score = 0
         self.status = 1 # 0 (pausado), 1 (jogando), 2 (game_over), 3 (vitória)
+        self.life = 3
         self.size = size
         self.matrix = [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -153,7 +154,15 @@ class Scenario(GameElements):
 
             if isinstance(character, Ghost) and \
                     character.line == self.pacman.line and character.column == self.pacman.column:
-                self.status = 2
+                self.life -= 1
+
+                if self.life <= 0:
+                    self.status = 2
+
+                else:
+                    self.pacman.line = 1
+                    self.pacman.column = 1
+
             else:
                 if 0 <= column_intention < 28 and 0 <= line_intention < 29 and \
                         self.matrix[line_intention][column_intention] != 1:
@@ -233,15 +242,18 @@ class Scenario(GameElements):
             if column == 1:
                 color_rect = BLUE
 
-            pygame.draw.rect(screen, color_rect, (x, y, self.size, self.size), 0)
+            pygame.draw.rect(screen, color_rect, (x, y, self.size, self.size), 1, border_radius=5)
 
             if column == 0:
                 pygame.draw.circle(screen, YELLOW, (x + half_size, y + half_size), self.size // 10, 0)
 
     def paint_score(self, screen: SurfaceType):
-        columns = 30 * self.size
+        line = 30 * self.size
         img_score = font.render(f"score {self.score}", True, YELLOW)
-        screen.blit(img_score, (columns, 50))
+        img_life = font.render(f"Life: {self.life}", True, YELLOW)
+
+        screen.blit(img_score, (line, 50))
+        screen.blit(img_life, (line, 100))
 
     def process_events(self, events: list[Event]):
         """
