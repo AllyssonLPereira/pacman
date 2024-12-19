@@ -116,7 +116,7 @@ class Scenario(GameElements):
             [1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1],
             [1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1],
             [1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 2, 2, 2, 2, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1],
+            [1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 3, 3, 3, 3, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1],
             [1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 2, 2, 2, 2, 2, 2, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1],
             [1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 2, 2, 2, 2, 2, 2, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1],
             [1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 2, 2, 2, 2, 2, 2, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1],
@@ -213,7 +213,11 @@ class Scenario(GameElements):
             else:
                 if 0 <= column_intention < 28 and 0 <= line_intention < 29 and \
                         self.matrix[line_intention][column_intention] != 1:
-                    character.accept_movement()
+                    if isinstance(character, Ghost):
+                        character.accept_movement()
+
+                    elif isinstance(character, Pacman) and self.matrix[line_intention][column_intention] != 3:
+                        character.accept_movement()
 
                     if isinstance(character, Pacman) and self.matrix[line][column] == 0:
                         self.score += 1
@@ -221,7 +225,6 @@ class Scenario(GameElements):
 
                         if self.score >= 306:
                             self.status = 3
-
                 else:
                     character.refuse_movement(directions)
 
@@ -334,6 +337,9 @@ class Scenario(GameElements):
 
             if column == 0:
                 pygame.draw.circle(screen, YELLOW, (x + half_size, y + half_size), self.size // 10, 0)
+
+            if column == 3:
+                pygame.draw.line(screen, WHITE, (x, y + 9), (x + self.size, y + 9), 5)
 
     def paint_score(self, screen: SurfaceType):
         """
@@ -496,7 +502,7 @@ class Ghost(GameElements):
         self.line: float = 15.0
         self.column_intention = self.column
         self.line_intention = self.line
-        self.speed: float = 0.50
+        self.speed: float = 0.75
         self.direction: int = UP
         self.size = size
         self.color: tuple[int, int, int] = color

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Mudando o cenário.">
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman/pacman2.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/pacman2.py" afterDir="false" />
     </list>
@@ -286,7 +286,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734623614805</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Comentando, documentando...">
+      <option name="closed" value="true" />
+      <created>1734626223223</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1734626223223</updated>
+    </task>
+    <task id="LOCAL-00019" summary=".">
+      <option name="closed" value="true" />
+      <created>1734626447926</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1734626447926</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,6 +333,8 @@
     <MESSAGE value="Adicionando lógica de movimentação para o pacman e o fantasma." />
     <MESSAGE value="Adicionando estados ao jogo." />
     <MESSAGE value="Mudando o cenário." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mudando o cenário." />
+    <MESSAGE value="Comentando, documentando..." />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>
