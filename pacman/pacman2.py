@@ -27,7 +27,7 @@ ROSE: tuple[int, int, int] = (241, 126, 161)
 WHITE: tuple[int, int, int] = (255, 255, 255)
 
 # Character speed
-SPEED: float = 0.25 # Movement speed
+SPEED: int = 1 # Movement speed
 
 # Dividing the height by the number of lines
 SIZE: int = 600 // 30
@@ -387,8 +387,8 @@ class Pacman(GameElements, Moviments):
 
         self.column: float = 1.0
         self.line: float = 1.0
-        self.center_x: int = 400
-        self.center_y: int = 300
+        self.center_x: int = 0
+        self.center_y: int = 0
         self.size: int = size
         self.speed_x: float = 0.0
         self.speed_y: float = 0.0
