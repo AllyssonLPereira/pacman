@@ -278,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734618972734</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Mudando o cenário.">
+      <option name="closed" value="true" />
+      <created>1734623614805</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1734623614805</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
