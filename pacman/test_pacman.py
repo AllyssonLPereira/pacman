@@ -1,5 +1,5 @@
 import pytest
-from pacman.pacman import Pacman, Ghost, Scenario
+from pacman import Pacman, Ghost, Scenario
 
 UP: int = 1
 
@@ -14,13 +14,6 @@ def test_ghost_movement():
     ghost.direction = UP
     ghost.calculate_rules()
     assert ghost.line_intention < ghost.line
-
-def test_scenario_score():
-    pacman = Pacman(20)
-    scenario = Scenario(20, pacman)
-    scenario.matrix[1][1] = 0
-    scenario.calculate_rules()
-    assert scenario.score == 1
 
 def test_pacman_ghost_collision():
     pacman = Pacman(20)

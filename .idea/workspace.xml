@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Mudando velocidade do pacman -v2.0.">
-      <change afterPath="$PROJECT_DIR$/pacman/test_pacman.py" afterDir="false" />
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Mudando o nome do arquivo e criando uma série de testes unitários.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pacman/pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/pacman.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pacman/test_pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/test_pacman.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,18 +54,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.pacman.executor&quot;: &quot;Run&quot;,
-    &quot;Python.pacman2.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/usuar/Documents/CS50p/project/.venv/Scripts/python.exe&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests in test_pacman.py.executor": "Run",
+    "Python.pacman.executor": "Run",
+    "Python.pacman2.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/usuar/Documents/CS50p/project/.venv/Scripts/python.exe",
+    "settings.editor.selected.configurable": "reference.idesettings.debugger.python"
   }
-}</component>
+}]]></component>
   <component name="QodanaHighlightedReportService">
     <option name="localRunNotPublishedPersistedInfo">
       <LocalReportPersistedInfo>
@@ -82,7 +84,7 @@
       <ReportDescription localRun="true" path="C:\Users\usuar\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="db13bc42-e175-4129-abbb-1ade4419f038" reportId="project/qodana/2024-12-16" />
     </option>
   </component>
-  <component name="RunManager" selected="Python.pacman">
+  <component name="RunManager" selected="Python tests.Python tests in test_pacman.py">
     <configuration name="pacman" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <option name="ENV_FILES" value="" />
@@ -96,7 +98,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pacman/pacman.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\usuar\Documents\CS50p\project\pacman\pacman.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,9 +146,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.pacman2" />
         <item itemvalue="Python tests.Python tests in test_pacman.py" />
         <item itemvalue="Python.pacman" />
+        <item itemvalue="Python.pacman2" />
       </list>
     </recent_temporary>
   </component>
@@ -350,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734648906813</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Mudando o nome do arquivo e criando uma série de testes unitários.">
+      <option name="closed" value="true" />
+      <created>1734794721008</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1734794721009</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -399,23 +409,19 @@
     <MESSAGE value="Alterando atributos da class Pacman." />
     <MESSAGE value="Mudando velocidade do pacman." />
     <MESSAGE value="Mudando velocidade do pacman -v2.0." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mudando velocidade do pacman -v2.0." />
+    <MESSAGE value="Mudando o nome do arquivo e criando uma série de testes unitários." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mudando o nome do arquivo e criando uma série de testes unitários." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pacman/pacman2.py</url>
+          <url>file://$PROJECT_DIR$/pacman/pacman.py</url>
           <line>183</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pacman/pacman2.py</url>
-          <line>402</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pacman/pacman2.py</url>
+          <url>file://$PROJECT_DIR$/pacman/pacman.py</url>
           <line>554</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
