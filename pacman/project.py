@@ -3,8 +3,7 @@ from pygame import SurfaceType, Surface
 from abc import ABCMeta, abstractmethod
 from pygame.event import Event
 from typing import Any
-import random
-import math
+import random, math
 
 
 # Pygame initialization

@@ -1,5 +1,5 @@
 import pytest
-from pacman import Pacman, Ghost, Scenario
+from project import Pacman, Ghost, Scenario
 
 UP: int = 1
 

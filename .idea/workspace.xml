@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Mudando o nome do arquivo e criando uma série de testes unitários.">
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Excluindo um teste unitário.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pacman/pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/pacman.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pacman/test_pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/test_pacman.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pacman/pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pacman/test_pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/test_projector.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +59,7 @@
     "Python tests.Python tests in test_pacman.py.executor": "Run",
     "Python.pacman.executor": "Run",
     "Python.pacman2.executor": "Run",
+    "Python.project.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
@@ -84,8 +85,8 @@
       <ReportDescription localRun="true" path="C:\Users\usuar\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="db13bc42-e175-4129-abbb-1ade4419f038" reportId="project/qodana/2024-12-16" />
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in test_pacman.py">
-    <configuration name="pacman" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="project" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,7 +99,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\usuar\Documents\CS50p\project\pacman\pacman.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\usuar\Documents\CS50p\project\pacman\project.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,7 +108,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pacman" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="project" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,7 +121,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\usuar\Documents\CS50p\project\pacman\pacman.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\usuar\Documents\CS50p\project\pacman\project.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,7 +130,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in test_pacman.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests in test_projector.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,15 +141,15 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/pacman/test_pacman.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/pacman/test_projector.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in test_pacman.py" />
-        <item itemvalue="Python.pacman" />
-        <item itemvalue="Python.pacman2" />
+        <item itemvalue="Python.project" />
+        <item itemvalue="Python tests.Python tests in test_projector.py" />
+        <item itemvalue="Python.project" />
       </list>
     </recent_temporary>
   </component>
@@ -360,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734794721009</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Excluindo um teste unitário.">
+      <option name="closed" value="true" />
+      <created>1734795419574</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1734795419574</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -410,18 +419,19 @@
     <MESSAGE value="Mudando velocidade do pacman." />
     <MESSAGE value="Mudando velocidade do pacman -v2.0." />
     <MESSAGE value="Mudando o nome do arquivo e criando uma série de testes unitários." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mudando o nome do arquivo e criando uma série de testes unitários." />
+    <MESSAGE value="Excluindo um teste unitário." />
+    <option name="LAST_COMMIT_MESSAGE" value="Excluindo um teste unitário." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pacman/pacman.py</url>
+          <url>file://$PROJECT_DIR$/pacman/project.py</url>
           <line>183</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pacman/pacman.py</url>
+          <url>file://$PROJECT_DIR$/pacman/project.py</url>
           <line>554</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
