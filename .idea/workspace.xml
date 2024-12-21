@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment=".">
+    <list default="true" id="57ce6607-c14e-4170-97cb-43ad83ea5764" name="Changes" comment="Excluindo um teste unitário.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pacman/pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pacman/test_pacman.py" beforeDir="false" afterPath="$PROJECT_DIR$/pacman/test_projector.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +86,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="pacman" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="project" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,7 +99,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\usuar\Documents\CS50p\project\pacman\pacman.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\usuar\Documents\CS50p\project\pacman\project.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,7 +130,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in test_pacman.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests in test_projector.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -139,15 +141,15 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/pacman/test_pacman.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/pacman/test_projector.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.project" />
-        <item itemvalue="Python tests.Python tests in test_pacman.py" />
-        <item itemvalue="Python.pacman" />
+        <item itemvalue="Python tests.Python tests in test_projector.py" />
+        <item itemvalue="Python.project" />
       </list>
     </recent_temporary>
   </component>
@@ -367,41 +369,10 @@
       <option name="project" value="LOCAL" />
       <updated>1734795419574</updated>
     </task>
-    <task id="LOCAL-00026" summary="Mudando nome do dos arquivos e criando arquivo requirements.txt">
-      <option name="closed" value="true" />
-      <created>1734799242339</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1734799242339</updated>
-    </task>
-    <task id="LOCAL-00027" summary=".">
-      <option name="closed" value="true" />
-      <created>1734799955281</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1734799955281</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="User">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="*" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -412,14 +383,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="user">
-                    <value>
-                      <list>
-                        <option value="*" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -449,15 +413,14 @@
     <MESSAGE value="Adicionando estados ao jogo." />
     <MESSAGE value="Mudando o cenário." />
     <MESSAGE value="Comentando, documentando..." />
+    <MESSAGE value="." />
     <MESSAGE value="Implementando barreira entre o pacman e a casa dos fantasmas." />
     <MESSAGE value="Alterando atributos da class Pacman." />
     <MESSAGE value="Mudando velocidade do pacman." />
     <MESSAGE value="Mudando velocidade do pacman -v2.0." />
     <MESSAGE value="Mudando o nome do arquivo e criando uma série de testes unitários." />
     <MESSAGE value="Excluindo um teste unitário." />
-    <MESSAGE value="Mudando nome do dos arquivos e criando arquivo requirements.txt" />
-    <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="Excluindo um teste unitário." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
