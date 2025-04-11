@@ -20,12 +20,12 @@ pip install pygame
 2. Instale as dependências: `pip install -r requirements.txt`
 3. Execute o jogo: `python main.py`
 
----
-
+&nbsp;
 ## **Como Jogar**
 
 Utilize as setas direcionais do teclado para controlar o Pac-Man. O objetivo é comer todas as bolinhas amarelas espalhadas pelo labirinto. Evite os fantasmas, pois se forem tocados, você perderá uma vida.
-<br>
+
+&nbsp;
 ## **Estrutura do Código**
 
 O código está organizado em classes para representar os diferentes elementos do jogo:
@@ -36,8 +36,7 @@ O código está organizado em classes para representar os diferentes elementos d
 * Pacman: Representa o personagem principal, com métodos para movimento, renderização e processamento de eventos.
 * Ghost: Representa os fantasmas, com métodos para movimento, renderização e inteligência artificial básica.
 
----
-
+&nbsp;
 ## **Funcionalidades**
 
 * Labirinto: Um labirinto estático gerado a partir de uma matriz, definindo as paredes e os caminhos.
@@ -52,5 +51,4 @@ O código está organizado em classes para representar os diferentes elementos d
 ## **Autor:**
 
 * Allysson Pereira - Desenvolvedor principal
-<br>
-* **Video Demo:** https://youtu.be/-at8P-YUxVw
+* Video Demo: https://youtu.be/-at8P-YUxVw
