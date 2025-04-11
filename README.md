@@ -4,7 +4,7 @@ Este é um jogo de Pac-Man clássico implementado em Python utilizando a bibliot
 
 <br>
 
-**Instalação:**
+## **Instalação:**
 
 Para executar este jogo, você precisará ter Python e Pygame instalados. Você pode instalá-los usando o pip:
 
@@ -14,7 +14,7 @@ Bash
 pip install pygame
 ```
 
-**Como Executar:**
+## **Como Executar:**
 
 1. Clone este repositório: `git clone https://github.com/AllyssonLPereira/pacman-python.git`
 2. Instale as dependências: `pip install -r requirements.txt`
@@ -22,11 +22,11 @@ pip install pygame
 
 ---
 
-**Como Jogar**
+## **Como Jogar**
 
 Utilize as setas direcionais do teclado para controlar o Pac-Man. O objetivo é comer todas as bolinhas amarelas espalhadas pelo labirinto. Evite os fantasmas, pois se forem tocados, você perderá uma vida.
-
-**Estrutura do Código**
+<br>
+## **Estrutura do Código**
 
 O código está organizado em classes para representar os diferentes elementos do jogo:
 
@@ -38,7 +38,7 @@ O código está organizado em classes para representar os diferentes elementos d
 
 ---
 
-**Funcionalidades**
+## **Funcionalidades**
 
 * Labirinto: Um labirinto estático gerado a partir de uma matriz, definindo as paredes e os caminhos.
 * Pac-Man: O personagem principal se move pelo labirinto coletando bolinhas.
@@ -49,8 +49,8 @@ O código está organizado em classes para representar os diferentes elementos d
 * Colisões: O jogo detecta colisões entre o Pac-Man e os fantasmas, bem como entre os personagens e as paredes do labirinto.
 ---
 
-**Autor:**
+## **Autor:**
 
 * Allysson Pereira - Desenvolvedor principal
 <br>
-**Video Demo:** https://youtu.be/-at8P-YUxVw
+* **Video Demo:** https://youtu.be/-at8P-YUxVw
